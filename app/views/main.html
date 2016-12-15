@@ -1,26 +1,78 @@
-<h1 class="page-header">Dashboard</h1>
-<h2 class="sub-header">Section title</h2>
+<!--<h2 class="page-header">Dashboard</h2> -->
+<h2 class="sub-header">track search
+  <small ng-show="track.selectedTracks.length > 0" class="pull-right glyphicon glyphicon-plus" ng-click="showAdvanced($event)"></small>
+</h2>
+
 
 <form class="">
   <input type="text" ng-model="track.input" class="form-control" placeholder="Search...">
 </form>
+<br />
+
+
+
+
+<!--<div ng-controller="AppCtrl" class="md-padding checkboxdemoSyncing" ng-cloak="" style="min-height:270px" ng-app="MyApp">-->
+  <!--<div layout="row" layout-wrap="">-->
+
+    <!--<div flex="100" flex-gt-sm="100" layout="column">-->
+      <!--<div>-->
+        <!--&lt;!&ndash;-->
+          <!--In IE, we cannot apply flex directly to <fieldset>-->
+          <!--@see https://github.com/philipwalton/flexbugs#9-some-html-elements-cant-be-flex-containers-->
+        <!--&ndash;&gt;-->
+        <!--<fieldset class="standard">-->
+          <!--<legend>Using md-checkbox with ng-checked </legend>-->
+          <!--<div layout="row" layout-wrap="" flex="">-->
+            <!--<div flex="100" ng-repeat="item in items">-->
+              <!--<md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">-->
+                <!--{{ $index + 1 }} <span ng-if="exists(item, selected)">selected</span>-->
+                <!--<span flex="20" ng-if="exists(item, selected)">selected</span>-->
+                <!--<span flex="20" ng-if="exists(item, selected)">selected</span>-->
+              <!--</md-checkbox>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</fieldset>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div flex="100">-->
+      <!--<h2 class="md-title">Selected Items</h2>-->
+      <!--<code style="display: block; padding: 8px;">{{selected | json}}</code>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
+<!--</div>-->
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+-->
+
+
+
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
-    <tr>
-      <th>#</th>
-      <th>songs name</th>
-      <th>artist</th>
-      <th>album</th>
-    </tr>
+      <tr>
+        <th>#</th>
+        <th>tracks name</th>
+        <th>artist</th>
+        <th>album</th>
+        <th>addPlaylist</th>
+      </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="t in track.songs">
-      <td>{{$index + 1}}</td>
-      <td>{{t.name}}</td>
-      <td>{{t.artists[0].name}}</td>
-      <td>{{t.album.name}}</td>
-    </tr>
+      <tr ng-repeat="t in track.songs" style="cursor: pointer"
+          select-track data-selected-tracks="track.selectedTracks" data-current-track="t">
+        <td>{{$index + 1}}</td>
+        <td>{{t.name}}</td>
+        <td>{{t.artists[0].name}}</td>
+        <td>{{t.album.name}}</td>
+        <td>add paly</td>
+      </tr>
     </tbody>
   </table>
 </div>

@@ -1,1 +1,22 @@
-<p>This is the about view.</p>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>tracks name</th>
+      <th>artist</th>
+      <th>album</th>
+      <th>note</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="t in playlist.tracks">
+      <td>{{$index + 1}}</td>
+      <td>{{t.name}}</td>
+      <td>{{t.artists[0].name}}</td>
+      <td>{{t.album.name}}</td>
+      <td><span ng-click="playlist.deleteTrack($index)">x</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

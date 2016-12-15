@@ -11,5 +11,5 @@ function topSongSidebar() {
   return {
     restrict: 'E',
     templateUrl: 'views/leftSidebar.html'
-  }
+  };
 }

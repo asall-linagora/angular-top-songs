@@ -18,9 +18,19 @@ angular.module('angularTopSongsApp')
         controllerAs: 'track'
       })
       .state('playlist', {
-        url: '/playlist',
+        url: '/playlist/:id',
+        params: {
+          id: null
+        },
         templateUrl: 'views/playlist.html',
         controller: 'PlaylistController',
-        controllerAs: 'playlist'
+        controllerAs: 'playlist',
+        resolve: {
+          tracks: function($stateParams, playlistService) {
+            var list = playlistService.getListOfPlaylist();
+            console.log('list', playlistService.getListOfPlaylist());
+            return list[$stateParams.id].tracks;
+          }
+        }
       });
   });

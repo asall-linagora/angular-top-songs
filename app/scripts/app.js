@@ -17,6 +17,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ngMaterial',
+    'ngMessages',
     'ui.router',
     'restangular',
     'spotify'

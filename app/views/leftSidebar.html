@@ -2,6 +2,6 @@
   <ul class="nav nav-sidebar">
     <li class="active"><a href="#">Playlist <i class="fa fa-plus-circle" aria-hidden="true"></i>
       <span class="sr-only">(current)</span></a></li>
-    <li ng-repeat="pl in main.listPlaylists"><a href="#">{{pl.name}}</a></li>
+    <li ng-repeat="pl in main.listPlaylists"><a ui-sref="playlist({id: 0})">{{pl.name}}</a></li>
   </ul>
 </div>
