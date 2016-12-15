@@ -14,7 +14,7 @@ angular.module('angularTopSongsApp')
       .state('home', {
         url: '/',
         templateUrl: 'views/main.html',
-        controller: 'SongListController',
+        controller: 'SearchTrackController',
         controllerAs: 'track'
       })
       .state('playlist', {
@@ -26,10 +26,23 @@ angular.module('angularTopSongsApp')
         controller: 'PlaylistController',
         controllerAs: 'playlist',
         resolve: {
-          tracks: function($stateParams, playlistService) {
+          currentPlaylist: function($stateParams, playlistService) {
             var list = playlistService.getListOfPlaylist();
-            console.log('list', playlistService.getListOfPlaylist());
-            return list[$stateParams.id].tracks;
+            return list[$stateParams.id];
+          }
+        }
+      })
+      .state('playlist.detail', {
+        url: '/detail/:trackId',
+        params: {
+          trackId: null
+        },
+        templateUrl: 'views/trackDetails.html',
+        controller: 'TrackDetailController',
+        controllerAs: 'tdetail',
+        resolve: {
+          currentTrack: function(Spotify, $stateParams) {
+            return Spotify.getTrack($stateParams.trackId);
           }
         }
       });

@@ -15,7 +15,7 @@ angular.module('angularTopSongsApp')
 
   })
 
-.controller('SongListController', function($scope, Spotify, $log, playlistService, $mdDialog) {
+.controller('SearchTrackController', function($scope, Spotify, $log, playlistService, $mdDialog) {
   var track = this;
 
   track.selectedTracks = [];
@@ -48,9 +48,6 @@ angular.module('angularTopSongsApp')
       return "Please select a playlist";
     }
   };
-  // $scope.addTracks = function() {
-  //   playlistService.addTracks($scope.selectedPlaylist, track.selectedTracks);
-  // };
 
   track.search = function() {
 
@@ -93,61 +90,9 @@ angular.module('angularTopSongsApp')
       }
     };
     $scope.addTracks = function(answer) {
-      console.log('test', $scope.test);
       playlistService.addTracks($scope.selectedPlaylist, track.selectedTracks);
       $mdDialog.hide(answer);
     };
   }
 
-})
-
-.controller('DetailsController', function() {
-  var dt = this;
-
-  dt.addNote = function() {
-
-  };
-
-  dt.addImage = function() {
-
-  };
-})
-
-  .controller('AppCtrl', function($scope, $mdDialog, playlistService) {
-
-
-
-/*
-    $scope.items = [1,2,3,4,5];
-    $scope.selected = [];
-
-    $scope.toggle = function (item, list) {
-      var idx = list.indexOf(item);
-      if (idx > -1) {
-        list.splice(idx, 1);
-      }
-      else {
-        list.push(item);
-      }
-    };
-
-    $scope.exists = function (item, list) {
-      return list.indexOf(item) > -1;
-    };*/
-
-
- /*   $scope.showAdvanced = function(ev) {
-      $mdDialog.show({
-        controller: 'AppCtrl',
-        templateUrl: 'views/playlistModal.html',
-        targetEvent: ev,
-        clickOutsideToClose:true,
-        fullscreen: false
-      })
-        .then(function(answer) {
-          $scope.status = 'You said the information was "' + answer + '".';
-        }, function() {
-          $scope.status = 'You cancelled the dialog.';
-        });
-    };*/
-  });
+});

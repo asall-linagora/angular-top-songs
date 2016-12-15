@@ -8,24 +8,35 @@
  * Controller of the angularTopSongsApp
  */
 angular.module('angularTopSongsApp')
-  .controller('PlaylistController', function (playlistService, tracks) {
+  .controller('PlaylistController', function (playlistService, currentPlaylist, $mdDialog) {
 
+    var playlist = this;
+    playlist.tracks = currentPlaylist.tracks;
 
-    var pl = this;
-    pl.tracks = tracks;
-
-    pl.deleteTrack = function(index) {
-      tracks.splice(index,1);
+    playlist.deleteTrack = function(index) {
+      playlist.tracks.splice(index,1);
     };
 
-    // pl.create = playlistService.create();
-    //
-    // pl.rename = playlistService.rename();
-    //
-    // pl.delete = playlistService.delete();
-    //
-    // pl.clear = playlistService.clear();
-    //
-    // pl.exportJson = playlistService.export();
+    playlist.name = currentPlaylist.name;
 
+
+    playlist.showPrompt = function(ev) {
+      // Appending dialog to document.body to cover sidenav in docs app
+      var confirm = $mdDialog.prompt()
+        .title('Rename the playlist?')
+        .textContent('Bowser is a common name.')
+        .placeholder('playlist name')
+        .ariaLabel('playlist name')
+        .initialValue(playlist.name)
+        .targetEvent(ev)
+        .ok('ok')
+        .cancel('cancel');
+
+      $mdDialog.show(confirm).then(function(result) {
+        playlist.name = result;
+        currentPlaylist.name = result;
+      }, function() {
+        //close the modal;
+      });
+    };
   });

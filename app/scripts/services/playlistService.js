@@ -29,8 +29,6 @@ angular.module('angularTopSongsApp')
         return listOfPlaylist;
       },
       addTracks: function (playlist, tracks) {
-        console.log('qsdklfj', playlist);
-        console.log('tracks', tracks);
         if(!angular.isArray(tracks)) {
           tracks = [tracks];
         }
