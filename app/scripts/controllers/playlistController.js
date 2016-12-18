@@ -23,8 +23,7 @@ angular.module('angularTopSongsApp')
     playlist.showPrompt = function(ev) {
       // Appending dialog to document.body to cover sidenav in docs app
       var confirm = $mdDialog.prompt()
-        .title('Rename the playlist?')
-        .textContent('Bowser is a common name.')
+        .title('Name the playlist?')
         .placeholder('playlist name')
         .ariaLabel('playlist name')
         .initialValue(playlist.name)

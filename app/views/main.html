@@ -1,57 +1,17 @@
 <!--<h2 class="page-header">Dashboard</h2> -->
 <h2 class="sub-header">track search
-  <small ng-show="track.selectedTracks.length > 0" class="pull-right glyphicon glyphicon-plus" ng-click="showAdvanced($event)"></small>
+  <button ng-show="track.selectedTracks.length > 0"
+         class="pull-right btn btn-primary"
+         ng-click="showAdvanced($event)">Add into a playlist</button>
 </h2>
 
 
 <form class="">
-  <input type="text" ng-model="track.input" class="form-control" placeholder="Search...">
+  <input type="text" ng-model="track.input"
+         ng-change="track.onSearchChange()"
+         class="form-control" placeholder="Search...">
 </form>
 <br />
-
-
-
-
-<!--<div ng-controller="AppCtrl" class="md-padding checkboxdemoSyncing" ng-cloak="" style="min-height:270px" ng-app="MyApp">-->
-  <!--<div layout="row" layout-wrap="">-->
-
-    <!--<div flex="100" flex-gt-sm="100" layout="column">-->
-      <!--<div>-->
-        <!--&lt;!&ndash;-->
-          <!--In IE, we cannot apply flex directly to <fieldset>-->
-          <!--@see https://github.com/philipwalton/flexbugs#9-some-html-elements-cant-be-flex-containers-->
-        <!--&ndash;&gt;-->
-        <!--<fieldset class="standard">-->
-          <!--<legend>Using md-checkbox with ng-checked </legend>-->
-          <!--<div layout="row" layout-wrap="" flex="">-->
-            <!--<div flex="100" ng-repeat="item in items">-->
-              <!--<md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">-->
-                <!--{{ $index + 1 }} <span ng-if="exists(item, selected)">selected</span>-->
-                <!--<span flex="20" ng-if="exists(item, selected)">selected</span>-->
-                <!--<span flex="20" ng-if="exists(item, selected)">selected</span>-->
-              <!--</md-checkbox>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</fieldset>-->
-      <!--</div>-->
-    <!--</div>-->
-
-
-    <!--<div flex="100">-->
-      <!--<h2 class="md-title">Selected Items</h2>-->
-      <!--<code style="display: block; padding: 8px;">{{selected | json}}</code>-->
-    <!--</div>-->
-  <!--</div>-->
-
-
-<!--</div>-->
-
-<!--
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
--->
-
-
 
 <div class="table-responsive">
   <table class="table table-striped">

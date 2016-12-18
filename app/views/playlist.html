@@ -3,16 +3,19 @@
 </h2>
 
 
-<div class="table-responsive">
+<div class="row">
+
+<div class="table-responsive col-md-8">
   <table class="table table-hover">
     <thead>
-    <tr>
-      <th>#</th>
-      <th>tracks name</th>
-      <th>artist</th>
-      <th>album</th>
-      <th>delete</th>
-    </tr>
+      <tr>
+        <th>#</th>
+        <th>tracks name</th>
+        <th>artist</th>
+        <th>album</th>
+        <th>delete</th>
+        <th>view</th>
+      </tr>
     </thead>
     <tbody>
     <tr ng-repeat="t in playlist.tracks">
@@ -21,7 +24,10 @@
       <td>{{t.artists[0].name}}</td>
       <td>{{t.album.name}}</td>
       <td><span ng-click="playlist.deleteTrack($index)">x</span></td>
+      <td><a ui-sref="playlist.detail({trackId: t.id})"><span class="glyphicon glyphicon-eye-open"></span></a></td>
     </tr>
     </tbody>
   </table>
+</div>
+<div class="col-md-4" ui-view></div>
 </div>

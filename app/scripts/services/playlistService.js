@@ -5,13 +5,12 @@
 'use strict';
 
 angular.module('angularTopSongsApp')
-  .factory('playlistService', function($q) {
-    var defer = $q.defer();
+  .factory('playlistService', function($log, $mdDialog) {
     var listOfPlaylist = [{name: 'Top 10', tracks: []}];
 
     return {
       create: function(name) {
-        listOfPlaylist.push({name: name, track: []});
+        listOfPlaylist.push({name: name, tracks: []});
       },
       rename: function(index, newName) {
         listOfPlaylist[index].name = newName;
@@ -34,7 +33,7 @@ angular.module('angularTopSongsApp')
         }
         angular.forEach(tracks, function(elm) {
           playlist.tracks.push(elm);
-          console.log(playlist);
+          $log.debug(playlist);
         });
       }
     };

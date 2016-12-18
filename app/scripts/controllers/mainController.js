@@ -21,20 +21,14 @@ angular.module('angularTopSongsApp')
   track.selectedTracks = [];
   $scope.selectedTracks = track.selectedTracks;
 
-  Spotify.search('Nirvana', 'artist').then(function (data) {
-    $log.debug('search', data);
-  });
-
   track.searchType = 'track';
 
-  $scope.$watch('track.input', function(n) {
-    if(n) {
-      Spotify.search(n, [track.searchType]).then(function(data) {
-        track.songs = data.tracks.items;
-        $log.debug('multiple search', data);
-      });
-    }
-  });
+  track.onSearchChange = function() {
+    Spotify.search(track.input, [track.searchType]).then(function(data) {
+      track.songs = data.tracks.items;
+      $log.debug('multiple search', data);
+    });
+  };
 
   //playlist
 

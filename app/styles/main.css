@@ -124,3 +124,7 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.menu {
+  margin: 15px 10px 10px 10px;
+}
